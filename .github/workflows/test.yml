@@ -1,0 +1,22 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+     - name: do checks
+       run: |
+          echo Checking...
+          wget https://cdn.geekbench.com/Geekbench-6.3.0-Linux.tar.gz -O gb6.tar.gz 
+          tar zxvf ./gb6.tar.gz
+          cd ./Geekbench-6.3.0-Linux/
+          ./geekbench_x86_64
+ 
